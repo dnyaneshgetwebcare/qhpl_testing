@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <classes>
+      <class name="testclass.Verifyamount">
+        <methods>
+          <include name="openBrowser"/>
+          <include name="login"/>
+          <include name="logout"/>
+          <include name="closeBrowser"/>
+          <include name="verifyAmount"/>
+        </methods>
+      </class> <!-- testclass.Verifyamount -->
+      <class name="testclass.Quotation">
+        <methods>
+          <include name="openBrowser"/>
+          <include name="login"/>
+          <include name="verifyAmount"/>
+          <include name="closeBrowser"/>
+          <include name="logout"/>
+        </methods>
+      </class> <!-- testclass.Quotation -->
+      <class name="testclass.Inquiry">
+        <methods>
+          <include name="verifyAmount"/>
+          <include name="openBrowser"/>
+          <include name="login"/>
+          <include name="closeBrowser"/>
+          <include name="logout"/>
+        </methods>
+      </class> <!-- testclass.Inquiry -->
+      <class name="testclass.Invoice">
+        <methods>
+          <include name="verifyAmount"/>
+          <include name="openBrowser"/>
+          <include name="login"/>
+          <include name="logout"/>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- testclass.Invoice -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
