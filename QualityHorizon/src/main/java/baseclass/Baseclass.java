@@ -14,7 +14,7 @@ public class Baseclass {
 
 		driver.get("http://192.168.20.254/gccvatpro_test_new/index.php?r=site%2Flogin");
 
-		driver.manage().window().maximize();
+		driver.manage().window().maximize(); //tect commit
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
