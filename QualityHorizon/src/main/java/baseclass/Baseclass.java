@@ -17,6 +17,6 @@ public class Baseclass {
 		driver.manage().window().maximize(); //tect commit
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+		//commit from omkar 
 	}
 }
