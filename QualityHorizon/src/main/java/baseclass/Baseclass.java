@@ -9,15 +9,14 @@ public class Baseclass {
 	public WebDriver driver;
 //hello test commit
 	public void initialize() {
-		System.setProperty("webdriver.chrome.driver", "C:\\chrome exe\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\chrome_EXE");
 		driver = new ChromeDriver();
 
-		driver.get("https://erphorizon.com/company/projectmanagement612/index.php?r=dashboard-profile%2Findex");
+		driver.get("");
 
-		driver.manage().window().maximize(); //tect commit 
+		driver.manage().window().maximize(); 
 
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		// commit 2 
-
+		//commit from omkar 
 	}
 }
