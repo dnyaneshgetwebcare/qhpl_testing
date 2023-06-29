@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class Pomclass3 {
 	public WebDriver driver;
-
+//Goods delivery 
 	@FindBy(xpath = "(//a[@data-toggle='dropdown'])[4]")
 	private WebElement aaction;
 	@FindBy(xpath = "//li[@onclick='goods_redirection()']")
@@ -23,7 +23,7 @@ public class Pomclass3 {
 	private WebElement save;
 	@FindBy(xpath = "//img[@id='back_button']")
 	private WebElement backbutton;
-
+//Billing
 	@FindBy(xpath = "//b[text()='OPEN']")
 	private WebElement billing;
 	@FindBy(xpath = "(//span[@class='select2-selection__placeholder'])[2]")
@@ -41,17 +41,22 @@ public class Pomclass3 {
 	private WebElement searchfield;
 	@FindBy(xpath = "//input[@id='billingheader-payment_due_date']")
 	private WebElement paymentduedate;
-
+//Payment
 	@FindBy(xpath = "(//a[@style='cursor:pointer'])[1]")
 	private WebElement payment;
 	@FindBy(xpath = "//a[@class='btn btn-warning dropdown-toggle pull-right hover-dropdown dropdown_action_open']")
 	private WebElement dropdownactionopen;
-	@FindBy(xpath = "(//li[@style='cursor: pointer;'])[9]")
+	@FindBy(xpath = "(//li[@style='cursor: pointer;'])[19]")
 	private WebElement popup3;
 	@FindBy(xpath = "//td[@id='settlement_total']")
 	private WebElement settlement;
 	@FindBy(xpath = "//input[@id='customerpayment-amount_temp']")
 	private WebElement amount;
+	@FindBy(xpath = "//span[contains(text(),'Select Payment')]")
+	private WebElement paymentmethod;
+	@FindBy(xpath = "//span[contains(text(),'Select Account')]")
+	private WebElement selectaccount;
+	
 
 	@FindBy(xpath = "((//tr[@style='background-color:#F9F908;font-size:15px;font-weight:bold'])//td)[2]")
 	private WebElement finaltext;
@@ -155,6 +160,22 @@ public class Pomclass3 {
 		Thread.sleep(15000);
 	}
 
+	public void paymentmethod() throws InterruptedException {
+		paymentmethod.click();
+		
+		paymentmethod.sendKeys("Credit Card");
+		Thread.sleep(2000);
+		paymentmethod.sendKeys(Keys.ENTER);
+	}
+	
+	
+	public void selectaccount() throws InterruptedException {
+		selectaccount.click();
+		Thread.sleep(2000);
+		selectaccount.sendKeys(Keys.ENTER);
+	}
+	
+	
 	public String finalText() {
 
 		String finalamount = finaltext.getText();

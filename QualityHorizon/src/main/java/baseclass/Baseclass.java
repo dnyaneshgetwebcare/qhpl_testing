@@ -18,7 +18,7 @@ public class Baseclass {
 		System.setProperty("webdriver.chrome.driver", "C:\\chrome exe\\chromedriver.exe");
 		driver = new ChromeDriver(ops);
 
-		driver.get("http://192.168.20.254/gccvatpro_test_new/index.php?r=site%2Flogin");
+		driver.get("https://erphorizon.com/company/projectmanagement612/index.php?r=site%2Flogin");
 
 		driver.manage().window().maximize(); //tect commit
 
