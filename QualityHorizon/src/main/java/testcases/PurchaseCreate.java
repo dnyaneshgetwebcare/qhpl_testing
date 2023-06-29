@@ -27,7 +27,7 @@ public class PurchaseCreate extends Baseclass {
 	GoodsReciept pm3;
 	PurchaseBilling pm4;
 	int Testid;
-
+//gghgh
 	@BeforeClass
 	public void openBrowser() throws InterruptedException, IOException {
 		initialize();
