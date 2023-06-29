@@ -16,14 +16,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import baseclass.Baseclass;
 import pomclasses.Pom1;
+import poms.PurchaseBilling;
 import poms.PurchaseOrderCreate;
-//import pomclasses.Pomclass3;
+import poms.GoodsReciept;
 import utilityclass.Utilityclass;
 
 public class PurchaseCreate extends Baseclass {
 	Pom1 pm1;
 	PurchaseOrderCreate pm2;
-//	Pomclass3 pm3;
+	GoodsReciept pm3;
+	PurchaseBilling pm4;
 	int Testid;
 
 	@BeforeClass
@@ -32,8 +34,8 @@ public class PurchaseCreate extends Baseclass {
 
 		pm1 = new Pom1(driver);
 		pm2 = new PurchaseOrderCreate(driver);
-	//	pm3 = new Pomclass3(driver);
-
+		pm3 = new GoodsReciept(driver);
+		pm4 = new PurchaseBilling(driver);
 	}
 
 	@BeforeMethod
@@ -50,21 +52,18 @@ public class PurchaseCreate extends Baseclass {
 		pm2.clickPurchase();
 		pm2.Leave();
 		pm2.clickAction();
-		pm2.clickPurchaseOrder();
-		pm2.selectVendor();
-		pm2.searchCustomer();
-		
-		pm2.nameSelected();
+		pm2.searchVendor();
 		Thread.sleep(2000);
 		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,1000)");
-//		pm2.selectItem1();
+		pm2.selectItem1();
 		Thread.sleep(25000);
-//		pm3.goodsDelivery();
 		Thread.sleep(2000);
-//		pm3.selectPaymentTerms();
-		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,400)");
-//		pm3.paymentDueDate();
-//		pm3.payment();
+		pm4.aaction();
+		pm4.vendorInvoiceClick();
+		pm4.saveButton();
+
+		pm4.paymentDueDate();
+		pm4.payment();
 		Thread.sleep(15000);
 		Set<String> AllIds = driver.getWindowHandles(); // MainPageID WindowPopID
 		ArrayList<String> ar = new ArrayList<String>(AllIds); // MainPageID WindowPopID
@@ -76,7 +75,7 @@ public class PurchaseCreate extends Baseclass {
 		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,400)");
 		Thread.sleep(2000);
 
-	//	pm3.amount();
+		pm4.amount();
 		Thread.sleep(5000);
 		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");
 	}
@@ -84,10 +83,10 @@ public class PurchaseCreate extends Baseclass {
 	@Test(priority = 1)
 	public void verifyAmount() throws EncryptedDocumentException, IOException, InterruptedException {
 
-//		String actual = pm3.finalText();
+		String actual = pm4.finalText();
 		String excepted = Utilityclass.getDataFromExcel(1, 35);
 		Reporter.log(excepted, true);
-//		Assert.assertEquals(actual, excepted);
+		Assert.assertEquals(actual, excepted);
 	}
 
 	@AfterMethod
