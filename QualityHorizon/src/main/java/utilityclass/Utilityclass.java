@@ -18,7 +18,7 @@ public class Utilityclass {
 
 	@Test
 	public static String getDataFromPF(String Keys) throws IOException {
-		FileInputStream file = new FileInputStream("C:\\FinalScript\\QualityHorizon\\credentials.properties");
+		FileInputStream file = new FileInputStream("C:\\Users\\DESK029\\git\\qhpl_testing\\QualityHorizon\\credentials.properties");
 
 		Properties Prop = new Properties();
 
