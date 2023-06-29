@@ -60,7 +60,7 @@ public class Pomclass2 {
 	private WebElement popup1;
 	@FindBy(xpath = "//input[@id='auto_search_customer_vw'] ")
 	private WebElement searchcustomer;
-	@FindBy(xpath = "//li[text()='OMKAR']")
+	@FindBy(xpath = "//li[text()='omkar']")
 	private WebElement selectname;
 
 // selectitem1
@@ -247,7 +247,7 @@ public class Pomclass2 {
 		Thread.sleep(2000);
 		selectitem1.click();
 		Thread.sleep(4000);
-		selectitem1.sendKeys("500002426");
+		selectitem1.sendKeys("500000893");
 		Thread.sleep(4000);
 		selectitem1.sendKeys(Keys.ENTER);
 		Thread.sleep(4000);

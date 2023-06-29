@@ -22,6 +22,9 @@ public class Pom1 {
 	@FindBy(xpath = "//span[contains(text(),'Item Master')]")
 	private WebElement itemmaster;
 	
+	@FindBy(xpath = "(//span[contains(text(),'Purchase')])[3]")
+    private WebElement purchaseOrder; // Added WebElement declaration for purchaseOrder
+
 	public Pom1(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
@@ -47,6 +50,9 @@ public class Pom1 {
 		itemmaster.click();
 		Thread.sleep(4000);
 	}
-	
+	 public void purchase() throws InterruptedException {
+	        purchaseOrder.click(); // Updated to interact with purchaseOrder WebElement
+	        Thread.sleep(4000);
+	    }
 	
 }
