@@ -76,7 +76,7 @@ public class Verifyamount extends Baseclass {
 		String WindowpopupID = ar.get(1);
 		System.out.println(WindowpopupID);
 		driver.switchTo().window(WindowpopupID);
-		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,400)");
+		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,300)");
 		Thread.sleep(2000);
 		pm3.paymentmethod();
 		Thread.sleep(2000);

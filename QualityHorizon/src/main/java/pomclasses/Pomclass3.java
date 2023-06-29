@@ -56,6 +56,9 @@ public class Pomclass3 {
 	private WebElement paymentmethod;
 	@FindBy(xpath = "//span[contains(text(),'Select Account')]")
 	private WebElement selectaccount;
+	@FindBy(xpath = "//span[@class='select2-search select2-search--dropdown']")
+	private WebElement paymentmethod1;
+	
 	
 
 	@FindBy(xpath = "((//tr[@style='background-color:#F9F908;font-size:15px;font-weight:bold'])//td)[2]")
@@ -161,10 +164,12 @@ public class Pomclass3 {
 	}
 
 	public void paymentmethod() throws InterruptedException {
+
 		paymentmethod.click();
-		
-		paymentmethod.sendKeys("Credit Card");
 		Thread.sleep(2000);
+		//paymentmethod.sendKeys("Credit Card");
+	//	Thread.sleep(2000);
+		paymentmethod1.click();
 		paymentmethod.sendKeys(Keys.ENTER);
 	}
 	
@@ -172,10 +177,15 @@ public class Pomclass3 {
 	public void selectaccount() throws InterruptedException {
 		selectaccount.click();
 		Thread.sleep(2000);
-		selectaccount.sendKeys(Keys.ENTER);
+		//selectaccount.sendKeys(Keys.ENTER);
+	//	Thread.sleep(2000);
+		Select S1=new Select(selectaccount);
+		Thread.sleep(2000);
+		S1.selectByVisibleText("Petty");
 	}
-	
-	
+    
+ //   S1.selectByVisibleText("Petty");
+    
 	public String finalText() {
 
 		String finalamount = finaltext.getText();
