@@ -47,6 +47,7 @@ public class Testclass extends Baseclass {
 		pm2.salesOrder();
 		pm2.action();
 		pm2.searchCustomer();
+		
 		Thread.sleep(2000);
 		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,1000)");
 		pm2.selectItem1();
