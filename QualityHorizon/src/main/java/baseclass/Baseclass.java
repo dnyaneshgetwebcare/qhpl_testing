@@ -14,10 +14,6 @@ public class Baseclass {
 		
 		ChromeOptions ops=new ChromeOptions();
 		ops.addArguments("--remote-allow-origins=*");
-		
-		
-		ChromeOptions ops=new ChromeOptions();
-		ops.addArguments("--remote-allow-origins=*");
 		System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
 		driver = new ChromeDriver(ops);
 
