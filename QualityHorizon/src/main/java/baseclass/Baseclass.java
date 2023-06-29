@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Baseclass {
@@ -15,10 +14,12 @@ public class Baseclass {
 		
 		ChromeOptions ops=new ChromeOptions();
 		ops.addArguments("--remote-allow-origins=*");
-		System.setProperty("webdriver.chrome.driver", "C:\\chrome exe\\chromedriver.exe");
+	
+		System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
 		driver = new ChromeDriver(ops);
 
 		driver.get("https://erphorizon.com/company/projectmanagement612/index.php?r=site%2Flogin");
+
 
 		driver.manage().window().maximize(); //tect commit
 
