@@ -1,3 +1,4 @@
+
 package pomclasses;
 
 import org.openqa.selenium.Keys;
@@ -33,7 +34,7 @@ public class Pomclass2 {
 
 	@FindBy(xpath = "//li[@id='quotation']")
 	private WebElement quotation;
-	@FindBy(xpath = "(//li[@style='cursor: pointer;'])[1]")
+	@FindBy(xpath = "//a[contains(text(),' Sales Quotation  ')] ")
 	private WebElement salesquotation;
 	@FindBy(xpath = "//a[text()=' Sales Order']")
 	private WebElement Order;
@@ -46,6 +47,8 @@ public class Pomclass2 {
 	@FindBy(xpath = "(//button[contains(text(),'Save')])[2]")
 	private WebElement savesubmitq;
 
+	@FindBy(xpath = "//b[contains(text(),'Rejected')] ")
+	private WebElement rejected;
 //salesorder
 
 	@FindBy(xpath = "(//li[@id='sales_order'])//a")
@@ -110,8 +113,33 @@ public class Pomclass2 {
 	@FindBy(xpath = "((//tr[@style='background-color:#F9F908;font-size:15px;font-weight:bold'])//td)[2]")
 	private WebElement finaltext1;
 
+	@FindBy(xpath = "//span[contains(text(),'Customer Payment')]")
+	private WebElement customerpayment;
+	@FindBy(xpath = "(//span[contains(text(),'Payments Receiv')])[1]")
+	private WebElement paymentreceived;
+
 	public Pomclass2(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+	}
+
+	public void customerpayment() throws InterruptedException {
+		customerpayment.click();
+		Thread.sleep(2000);
+
+	}
+
+	public void paymentreceived() throws InterruptedException {
+		paymentreceived.click();
+		Thread.sleep(2000);
+		leave.click();
+		Thread.sleep(2000);
+
+	}
+
+	public String rejected() {
+		String Reejected = rejected.getText();
+
+		return Reejected;
 	}
 
 	public void inquiry() throws InterruptedException {

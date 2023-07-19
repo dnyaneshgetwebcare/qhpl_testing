@@ -1,3 +1,4 @@
+
 package pomclasses;
 
 import org.openqa.selenium.Keys;
@@ -35,8 +36,6 @@ public class Pomclass3 {
 	@FindBy(xpath = "//li[contains(@id,'select')]")
 	private WebElement selectpt;
 
-	
-	
 	@FindBy(xpath = "//input[@class='select2-search__field']")
 	private WebElement searchfield;
 	@FindBy(xpath = "//input[@id='billingheader-payment_due_date']")
@@ -46,7 +45,7 @@ public class Pomclass3 {
 	private WebElement payment;
 	@FindBy(xpath = "//a[@class='btn btn-warning dropdown-toggle pull-right hover-dropdown dropdown_action_open']")
 	private WebElement dropdownactionopen;
-	@FindBy(xpath = "(//li[@style='cursor: pointer;'])[19]")
+	@FindBy(xpath = "//a[contains(text(),'Final Payment')]")
 	private WebElement popup3;
 	@FindBy(xpath = "//td[@id='settlement_total']")
 	private WebElement settlement;
@@ -54,19 +53,53 @@ public class Pomclass3 {
 	private WebElement amount;
 	@FindBy(xpath = "//span[contains(text(),'Select Payment')]")
 	private WebElement paymentmethod;
-	@FindBy(xpath = "//span[contains(text(),'Select Account')]")
+	@FindBy(xpath = "//select[@id='customerpayment-cash_gl']")
 	private WebElement selectaccount;
-	
+	@FindBy(xpath = "//span[@class='select2-search select2-search--dropdown']")
+	private WebElement paymentmethod1;
 
 	@FindBy(xpath = "((//tr[@style='background-color:#F9F908;font-size:15px;font-weight:bold'])//td)[2]")
 	private WebElement finaltext;
+	@FindBy(xpath = "//li[contains(text(),'Cash')]")
+	private WebElement textcash;
+
+	// payment cancel
+	@FindBy(xpath = "//a[contains(text(),'Cancel')]")
+	private WebElement cancel;
+
+	public void cancel() throws InterruptedException {
+		cancel.click();
+	}
+
+	public void backbutton() throws InterruptedException {
+		backbutton.click();
+
+	}
 
 	// Accept Quotation
-	@FindBy(xpath = "//a[text()=' Accept']")
+	@FindBy(xpath = "//a[contains(text(),'Accept')]")
 	private WebElement accept;
+
+	// Reject
+	@FindBy(xpath = "//a[contains(text(),'Reject')]")
+	private WebElement reject;
+
+	// Update
+	@FindBy(xpath = "//button[contains(text(),'Update')]")
+	private WebElement update;
 
 	public Pomclass3(WebDriver driver) {
 		PageFactory.initElements(driver, this);
+	}
+
+	public void update() throws InterruptedException {
+		update.click();
+	}
+
+	public void raaction() throws InterruptedException {
+		aaction.click();
+		Thread.sleep(2000);
+		reject.click();
 	}
 
 	public void aaction() throws InterruptedException {
@@ -103,21 +136,19 @@ public class Pomclass3 {
 	}
 
 	public void OselectPaymentTerms() throws InterruptedException {
-		
-		
+
 		OselectPaymentTerms.click();
-		search.click();
+		// search.click();
 		searchfield.sendKeys("100");
 		Thread.sleep(2000);
 		selectpt.click();
-		
-		//selectpaymentterms.click();
+
+		// selectpaymentterms.click();
 
 //		searchfield.sendKeys(Keys.ENTER);
 //		Thread.sleep(2000);
 
 	}
-	
 
 	public void paymentDueDate() throws InterruptedException {
 
@@ -136,6 +167,7 @@ public class Pomclass3 {
 		Thread.sleep(2000);
 		paymentduedate.sendKeys(Keys.ENTER);
 	}
+
 	public void payment() throws InterruptedException {
 		Thread.sleep(5000);
 		aaction.click();
@@ -161,21 +193,45 @@ public class Pomclass3 {
 	}
 
 	public void paymentmethod() throws InterruptedException {
+
 		paymentmethod.click();
-		
-		paymentmethod.sendKeys("Credit Card");
+
+		textcash.click();
 		Thread.sleep(2000);
-		paymentmethod.sendKeys(Keys.ENTER);
+		// textcash.sendKeys(Keys.ENTER);
+
 	}
-	
-	
+
+	public void ipaymentmethod() throws InterruptedException {
+
+		paymentmethod.click();
+		// Thread.sleep(2000);
+		paymentmethod.sendKeys(Keys.ENTER);
+
+	}
+
 	public void selectaccount() throws InterruptedException {
+		selectaccount.click();
+		Thread.sleep(2000);
+		// Send the arrow down key to open the dropdown options.
+		selectaccount.sendKeys(Keys.ARROW_DOWN);
+
+		// Select an option using ENTER key.
+		selectaccount.sendKeys(Keys.ENTER);
+		// selectaccount.sendKeys(Keys.ENTER);
+		// Thread.sleep(2000);
+//		Select S1 = new Select(selectaccount);
+//		Thread.sleep(2000);
+//		S1.selectByVisibleText("Petty");
+	}
+
+	// S1.selectByVisibleText("Petty");
+	public void iselectaccount() throws InterruptedException {
 		selectaccount.click();
 		Thread.sleep(2000);
 		selectaccount.sendKeys(Keys.ENTER);
 	}
-	
-	
+
 	public String finalText() {
 
 		String finalamount = finaltext.getText();
