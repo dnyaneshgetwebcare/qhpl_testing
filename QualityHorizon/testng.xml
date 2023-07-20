@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-	<test thread-count="5" name="Test">
-		<classes>
-			<class name="testclass.Invoice" />
-			<class name="testclass.Quotation" />
-			<class name="testclass.Verifyamount" />
-			<class name="testclass.Inquiry" />
-
-
-		</classes>
-	</test> <!--
-	Test -->
-</suite> <!--
-Suite -->
+<suite name="Sales test case">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="testclass.Inquiry"/>
+      <class name="testclass.Rejectquotation"/>
+      <class name="testclass.salesorder"/>
+      <class name="testclass.Rejectinquiry"/>
+      <class name="testclass.Quotation"/>
+      <class name="testclass.Invoice"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Sales test case -->

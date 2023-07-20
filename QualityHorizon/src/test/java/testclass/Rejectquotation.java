@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 import org.apache.poi.EncryptedDocumentException;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -22,7 +23,7 @@ import pomclasses.Pomclass2;
 import pomclasses.Pomclass3;
 import utilityclass.Utilityclass;
 
-public class salesorder extends Baseclass {
+public class Rejectquotation extends Baseclass {
 	Pom1 pm1;
 	Pomclass2 pm2;
 	Pomclass3 pm3;
@@ -46,55 +47,36 @@ public class salesorder extends Baseclass {
 		pm1.psw(Utilityclass.getDataFromPF("password"));
 		Thread.sleep(2000);
 		pm1.b1();
-//		pm1.itemmaster();
+		Thread.sleep(2000);
 		pm1.sales();
-		pm2.salesOrder();
+		pm2.quotation();
 		pm2.action();
-		pm2.sorder();
+		pm2.salesquotation();
+		Thread.sleep(2000);
 		pm2.searchCustomer();
 		Thread.sleep(2000);
-		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,700)");
+
+		Thread.sleep(2000);
+		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,600)");
 		pm2.selectItem1();
-		// pm2.netprice();
-//		pm2.selectItem2();
-//		pm2.selectItem3();
-//		pm2.selectItem4();
-//		Thread.sleep(25000);
-		Thread.sleep(5000);
-		pm2.savesubmit();
-		Thread.sleep(45000);
-		pm3.goodsDelivery();
+		pm2.savesubmitq();
+		// pm2.selectItem2();
+		// pm2.selectItem3();
+		// pm2.selectItem4();
+		Thread.sleep(30000);
+		pm3.raaction();
+		Alert Alt = driver.switchTo().alert();
+		Alt.accept();
 		Thread.sleep(2000);
-		pm3.selectPaymentTerms();
-		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,400)");
-		pm3.paymentDueDate();
-		pm3.payment();
-		Thread.sleep(15000);
-		Set<String> AllIds = driver.getWindowHandles(); // MainPageID WindowPopID
-		ArrayList<String> ar = new ArrayList<String>(AllIds); // MainPageID WindowPopID
-		String MainPageID = ar.get(0);
-		System.out.println(MainPageID);
-		String WindowpopupID = ar.get(1);
-		System.out.println(WindowpopupID);
-		driver.switchTo().window(WindowpopupID);
-		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,300)");
-		Thread.sleep(2000);
-		pm3.paymentmethod();
-		Thread.sleep(2000);
-		pm3.selectaccount();
-		Thread.sleep(2000);
-		pm3.amount();
-		Thread.sleep(5000);
-		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");
+		pm3.update();
+
 	}
 
 	@Test(priority = 1)
-	public void verifyAmount() throws EncryptedDocumentException, IOException, InterruptedException {
-
-		String actual = pm3.finalText();
-		String excepted = Utilityclass.getDataFromExcel(5, 35);
-		Reporter.log(excepted, true);
-		Assert.assertEquals(actual, excepted);
+	public void Rejected() throws EncryptedDocumentException, IOException, InterruptedException {
+		 String rejectedText = pm2.rejected();
+		 // Print the text
+	        System.out.println("Rejected text: " + rejectedText);
 	}
 
 	@AfterMethod

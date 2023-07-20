@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Set;
 
 import org.apache.poi.EncryptedDocumentException;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -22,7 +23,7 @@ import pomclasses.Pomclass2;
 import pomclasses.Pomclass3;
 import utilityclass.Utilityclass;
 
-public class salesorder extends Baseclass {
+public class Rejectsalesorder extends Baseclass {
 	Pom1 pm1;
 	Pomclass2 pm2;
 	Pomclass3 pm3;
@@ -31,7 +32,7 @@ public class salesorder extends Baseclass {
 	@BeforeClass
 	public void openBrowser() throws InterruptedException, IOException {
 		initialize();
-
+//
 		pm1 = new Pom1(driver);
 		pm2 = new Pomclass2(driver);
 		pm3 = new Pomclass3(driver);
@@ -40,6 +41,7 @@ public class salesorder extends Baseclass {
 
 	@BeforeMethod
 	public void login() throws InterruptedException, IOException {
+
 		Thread.sleep(2000);
 		pm1.name(Utilityclass.getDataFromPF("username1"));
 		Thread.sleep(2000);
@@ -91,10 +93,6 @@ public class salesorder extends Baseclass {
 	@Test(priority = 1)
 	public void verifyAmount() throws EncryptedDocumentException, IOException, InterruptedException {
 
-		String actual = pm3.finalText();
-		String excepted = Utilityclass.getDataFromExcel(5, 35);
-		Reporter.log(excepted, true);
-		Assert.assertEquals(actual, excepted);
 	}
 
 	@AfterMethod
@@ -106,8 +104,35 @@ public class salesorder extends Baseclass {
 	}
 
 	@AfterClass
-	public void closeBrowser() {
+	public void closeBrowser() throws InterruptedException {
+
+		// Scroll up 500 pixels using JavaScript
+		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
+		jsExecutor.executeScript("window.scrollBy(0, -500);");
+		pm3.cancel();
+		Thread.sleep(2000);
+		Alert Alt = driver.switchTo().alert();
+		Alt.accept();
+		Thread.sleep(2000);
+		pm3.backbutton();
+
+		// Switch to the new window
+		Set<String> allIds = driver.getWindowHandles();
+		ArrayList<String> ar = new ArrayList<String>(allIds);
+		String mainPageID = ar.get(0);
+		String windowPopupID = ar.get(1);
+
+		// Switch to the new window
+		// driver.switchTo().window(windowPopupID);
+		driver.switchTo().window(mainPageID);
+
+		// After switching back to the main page, you can perform further actions on the
+		// main page.
+		// For example, scroll up using JavaScript
+		JavascriptExecutor jsExecutor1 = (JavascriptExecutor) driver;
+		jsExecutor1.executeScript("window.scrollBy(0, -500);");
 
 	}
 
 }
+

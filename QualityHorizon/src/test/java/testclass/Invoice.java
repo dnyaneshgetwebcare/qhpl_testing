@@ -1,3 +1,4 @@
+
 package testclass;
 
 import java.io.IOException;
@@ -73,6 +74,11 @@ public class Invoice extends Baseclass {
 		pm4.ok();
 		Thread.sleep(25000);
 		pm4.paymentreceived();
+		Thread.sleep(2000);
+		pm3.ipaymentmethod();
+		
+		pm3.iselectaccount();
+		Thread.sleep(2000);
 		pm4.save();
 
 	}

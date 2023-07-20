@@ -1,3 +1,4 @@
+
 package testclass;
 
 import java.io.IOException;
@@ -57,7 +58,7 @@ public class Quotation extends Baseclass {
 		Thread.sleep(2000);
 		
 		Thread.sleep(2000);
-		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,1000)");
+		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,600)");
 		pm2.selectItem1();
 		pm2.savesubmitq();
 		// pm2.selectItem2();
@@ -93,9 +94,12 @@ public class Quotation extends Baseclass {
 		String WindowpopupID = ar.get(1);
 		System.out.println(WindowpopupID);
 		driver.switchTo().window(WindowpopupID);
-		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,400)");
+		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,200)");
 		Thread.sleep(2000);
-
+		pm3.paymentmethod();
+		Thread.sleep(2000);
+		pm3.selectaccount();
+		Thread.sleep(2000);
 		pm3.amount();
 		Thread.sleep(5000);
 		((JavascriptExecutor) driver).executeScript("window.scrollBy(0,500)");

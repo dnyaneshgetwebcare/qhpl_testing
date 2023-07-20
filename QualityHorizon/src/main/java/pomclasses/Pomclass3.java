@@ -1,4 +1,6 @@
 
+
+
 package pomclasses;
 
 import org.openqa.selenium.Keys;
@@ -62,19 +64,30 @@ public class Pomclass3 {
 	private WebElement finaltext;
 	@FindBy(xpath = "//li[contains(text(),'Cash')]")
 	private WebElement textcash;
-
-	// payment cancel
+	
+	//payment cancel 
 	@FindBy(xpath = "//a[contains(text(),'Cancel')]")
 	private WebElement cancel;
-
+	
 	public void cancel() throws InterruptedException {
 		cancel.click();
 	}
-
 	public void backbutton() throws InterruptedException {
 		backbutton.click();
 
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 
 	// Accept Quotation
 	@FindBy(xpath = "//a[contains(text(),'Accept')]")
@@ -92,10 +105,10 @@ public class Pomclass3 {
 		PageFactory.initElements(driver, this);
 	}
 
+	
 	public void update() throws InterruptedException {
 		update.click();
 	}
-
 	public void raaction() throws InterruptedException {
 		aaction.click();
 		Thread.sleep(2000);
@@ -196,9 +209,10 @@ public class Pomclass3 {
 
 		paymentmethod.click();
 
+    
 		textcash.click();
-		Thread.sleep(2000);
-		// textcash.sendKeys(Keys.ENTER);
+	   Thread.sleep(2000);
+	//   textcash.sendKeys(Keys.ENTER);
 
 	}
 
