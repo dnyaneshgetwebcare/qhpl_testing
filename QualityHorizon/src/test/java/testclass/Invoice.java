@@ -75,9 +75,9 @@ public class Invoice extends Baseclass {
 		Thread.sleep(25000);
 		pm4.paymentreceived();
 		Thread.sleep(2000);
-		pm3.ipaymentmethod();
+		pm3.paymentmethod();
 		
-		pm3.iselectaccount();
+		pm3.selectaccount();
 		Thread.sleep(2000);
 		pm4.save();
 
